@@ -13,13 +13,12 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 				features = { "src/test/resources/FeatureFiles" }, 
-				glue = { "com.upskill.stepDef", "com.utilities" }, 
+				glue = { "com.automation.stepDef", "com.utilities" }, 
 				tags = "@regression", 
 				plugin = {
 				        "pretty", // provides additional information to the reports 
 				        "html:target/cucumber-html-report.html",
 				        "json:target/cucumber-report.json",
-				        //"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports.html" 
 				        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				        "timeline:target/cucumber"
 				    	},
@@ -34,10 +33,4 @@ public class RunnerClass extends AbstractTestNGCucumberTests {
 	public Object[][] scenarios() {
 		return super.scenarios();
 	}
-	
-//	@AfterClass
-//	public static void writeExtentReport() {
-//		Reporter.loadXMLConfig(new File("config/config.xml"));
-//	}
-
 } 
